@@ -1,4 +1,4 @@
-name: Demo deployment
+name: Build / Deploy - Web - King of Slots
 on:
   push:
     branches:
