@@ -1,0 +1,27 @@
+{
+    "name": "@king-casino/root",
+    "description": "Casino slot machine game developed with web technologies (HTML5)",
+    "private": true,
+    "scripts": {},
+    "workspaces": [
+        "slot-base",
+        "king-of-slots"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kalevski/king-of-slots-game.git"
+    },
+    "author": {
+        "name": "Daniel Kalevski",
+        "url": "https://kalevski.dev"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/kalevski/king-of-slots-game/issues"
+    },
+    "homepage": "https://king-of-slots.demo.kalevski.dev/",
+    "devDependencies": {
+        "parcel": "^2.8.3",
+        "typescript": "^5.0.4"
+    }
+}

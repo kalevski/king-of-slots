@@ -1,0 +1,36 @@
+{
+    "name": "@king-casino/slot-base",
+    "version": "0.0.1",
+    "description": "Base slot machine logic shared between multiple games",
+    "source": "src/main.js",
+    "main": "lib/main.js",
+    "module": "lib/module.js",
+    "types": "lib/main.d.ts",
+    "scripts": {
+        "dev": "nodemon -e js -w src --exec \"npm run build\"",
+        "build": "npm run build:src && npm run build:tsd",
+        "build:src": "parcel build --no-optimize",
+        "build:tsd": "tsc -d --allowJs --emitDeclarationOnly --target es5 --lib ES2015 --outDir ./lib src/*.js"
+    },
+    "dependencies": {},
+    "targets": {
+        "types": false,
+        "main": {
+            "optimize": false
+        },
+        "module": {
+            "optimize": false
+        }
+    },
+    "author": {
+        "name": "Daniel Kalevski",
+        "url": "https://kalevski.dev"
+    },
+    "directories": {
+        "lib": "lib"
+    },
+    "files": [
+        "lib"
+    ],
+    "license": "MIT"
+}
