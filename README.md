@@ -9,10 +9,11 @@ ___
 
 ## ✔️ Tasks
 - [ ] Create HTML5 canvas using PixiJS inside web application developed with ReactJS
-- [ ] Setup building pipelines for typescript -> live demo
-- [ ] Design the project to support inheritance and to be easily configurable
-- [ ] Separate in mutiple subprojects inside monorepo to improve reusability
-- [ ] create game config
+- [x] Setup building pipelines for typescript -> live demo
+- [x] Design the project to support inheritance and to be easily configurable
+- [x] Separate in mutiple subprojects inside monorepo to improve reusability
+- [x] create game config
+- [x] implement layer manager for managing different layers of logic
 - [ ] Create background image
 - [ ] Reel container with multiple reels
 - [ ] Spin functionality

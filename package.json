@@ -2,7 +2,11 @@
     "name": "@king-casino/root",
     "description": "Casino slot machine game developed with web technologies (HTML5)",
     "private": true,
-    "scripts": {},
+    "scripts": {
+        "dev": "concurrently \"npm:dev:*\"",
+        "dev:slot-base": "npm run dev -w @king-casino/slot-base",
+        "dev:king-of-slots": "npm run dev -w @king-casino/king-of-slots"
+    },
     "workspaces": [
         "slot-base",
         "king-of-slots"
@@ -21,7 +25,14 @@
     },
     "homepage": "https://king-of-slots.demo.kalevski.dev/",
     "devDependencies": {
+        "@parcel/packager-ts": "^2.8.3",
+        "@parcel/transformer-sass": "^2.8.3",
+        "@parcel/transformer-typescript-types": "^2.8.3",
+        "concurrently": "^8.0.1",
+        "nodemon": "^2.0.22",
         "parcel": "^2.8.3",
+        "punycode": "^1.4.1",
+        "querystring-es3": "^0.2.1",
         "typescript": "^5.0.4"
     }
 }
