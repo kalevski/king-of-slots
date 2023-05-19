@@ -1,0 +1,38 @@
+* {
+    font-size: 42px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background: #000;
+}
+
+.parent-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .overlay {
+        position: absolute;
+        pointer-events: none;
+        user-select: none;
+
+        .overlay-components {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            > .component {
+                pointer-events: auto;
+                position: absolute;
+            }
+        }
+    }
+
+}

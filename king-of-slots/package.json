@@ -4,10 +4,12 @@
     "private": true,
     "description": "Slot machine develoed using slot-base",
     "scripts": {
-        "dev": "parcel serve -p 2334 --open --dist-dir public index.html",
-        "build": "parcel build --log-level info --dist-dir public index.html"
+        "dev": "parcel serve -p 2334 --open --dist-dir public src/index.html",
+        "build": "parcel build --log-level info --dist-dir public src/index.html"
     },
-    "dependencies": {},
+    "dependencies": {
+        "pixi.js": "^7.2.4"
+    },
     "license": "MIT",
     "author": {
         "name": "Daniel Kalevski",
