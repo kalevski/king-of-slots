@@ -44,16 +44,20 @@ class Runtime extends Broadcast<RuntimeEvents,RuntimeCallback,any> {
     }
 
     private onceRender() {
-        // window.addEventListener('resize', () => this.onResize()) // check params
+        this.getOverlay().style.width = this.config.width + 'px'
+        this.getOverlay().style.height = this.config.height + 'px'
+        window.addEventListener('resize', () => this.onResize()) // check params
         this.emit('initialized')
-        // this.getOverlay().style.width = this.config.width?.toString() + 'px'
-        // this.getOverlay().style.height = this.config.height?.toString() + 'px'
-        // this.onResize()
+        this.onResize()
     }
 
     private onResize() {
         this.emit('resized')
-        const canvas = this.parentEl?.children.item(1) as HTMLCanvasElement
+        const canvas = this.parentEl?.getElementsByTagName('canvas').item(0)
+
+        if (canvas === null || typeof canvas === 'undefined') {
+            throw new Error('error TODO:')
+        }
 
         const scaleX = canvas.width / this.config.width
         const scaleY = canvas.height / this.config.height

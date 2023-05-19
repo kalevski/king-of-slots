@@ -5,7 +5,10 @@ Casino slot machine game developed with web technologies (HTML5)
 ___
 
 ## 🚀 Getting started
-[TBD]
+```
+npm install
+npm run dev
+```
 
 ## ✔️ Tasks
 - [ ] Create HTML5 canvas using PixiJS inside web application developed with ReactJS
@@ -14,7 +17,7 @@ ___
 - [x] Separate in mutiple subprojects inside monorepo to improve reusability
 - [x] create game config
 - [x] implement layer manager for managing different layers of logic
-- [ ] Create background image
+- [x] Create background image
 - [ ] Reel container with multiple reels
 - [ ] Spin functionality
 - [ ] Spin button interaction
@@ -27,6 +30,7 @@ ___
 - [ ] Full screen button
 - [ ] Anticipation 
 - [ ] Bonus spins
+- [ ] Debug interface
 
 ## 🚢 Deployment
 The project is built as single page web app (static files) and hosted on GitHub pages

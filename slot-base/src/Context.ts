@@ -1,10 +1,11 @@
-import { Application, Ticker } from 'pixi.js'
+import { Application, Assets, Ticker } from 'pixi.js'
 import { LoggerFactory } from '@toolcase/logging'
 
 import Runtime from './Runtime'
 import { Config, ISlotRuntime } from './main'
 import LayerManager from './core/LayerManager'
 import CustomLoggerFactory from './CustomLoggingFactory'
+import AssetManager from './core/AssetManager'
 
 
 const DEFAULT_CONFIG: Config = {
@@ -12,7 +13,7 @@ const DEFAULT_CONFIG: Config = {
     height: 720
 }
 
-class Context extends Application {
+class Context {
 
     private slot: ISlotRuntime
 
@@ -20,18 +21,17 @@ class Context extends Application {
 
     private runtime: Runtime
 
+    public app: Application
+
     public ticker: Ticker
 
     public layers: LayerManager
 
+    public assets: AssetManager
+
     public logging: LoggerFactory = new CustomLoggerFactory()
 
     constructor(config: Config = DEFAULT_CONFIG) {
-        super({
-            width: config.width || 1280,
-            height: config.height || 720
-        })
-
         this.config = config
         this.runtime = new Runtime(this.config)
 
@@ -49,13 +49,21 @@ class Context extends Application {
     }
 
     private onInit() {
-        const canvasParent = this.runtime.getCanvasParent()
-        canvasParent.append(this.view as HTMLCanvasElement)
+        this.app = new Application({
+            width: this.config.width || 1280,
+            height: this.config.height || 720,
+            background: '#ccc'
+        })
+
+        const parent = document.getElementById('game') as HTMLDivElement
+        parent.appendChild(this.app.view as HTMLCanvasElement)
 
         this.ticker = new Ticker()
         this.ticker.add(this.onUpdate, this)
 
         this.layers = new LayerManager(this)
+
+        this.assets = new AssetManager(this)
 
         this.slot.onStart(this)
 
@@ -71,7 +79,7 @@ class Context extends Application {
 
     private onResize() {
         const rootEl = this.runtime.getCanvasParent()
-        const { width = 0, height = 0 } = this.renderer.options
+        const { width = 0, height = 0 } = this.app.renderer.options
         let gcd = this.getGCD(width, height)
         let ratio = {
             width: width / gcd,
@@ -84,10 +92,10 @@ class Context extends Application {
             height: rootEl.clientHeight === 0 ? Number.MAX_SAFE_INTEGER : rootEl.clientHeight,
         }
         let pixelsPerUnit = sizeWidth < sizeHeight ? root.width / ratio.width : root.height / ratio.height
-        this.view.width = ratio.width * pixelsPerUnit
-        this.view.height = ratio.height * pixelsPerUnit
-        this.stage.scale.set(this.view.width / width, this.view.height / height)
-        this.renderer.resize(this.view.width, this.view.height)
+        this.app.view.width = ratio.width * pixelsPerUnit
+        this.app.view.height = ratio.height * pixelsPerUnit
+        this.app.stage.scale.set(this.app.view.width / width, this.app.view.height / height)
+        this.app.renderer.resize(this.app.view.width, this.app.view.height)
     }
 
     private getGCD(width:number, height:number): number {

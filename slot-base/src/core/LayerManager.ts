@@ -18,7 +18,7 @@ class LayerManager {
     register(key: string, layerClass: ILayer) : Layer {
         let layer = new layerClass(this.context, key)
         this.list.push(layer)
-        this.context.stage.addChild(layer)
+        this.context.app.stage.addChild(layer)
         layer.onCreate()
         return layer
     }
@@ -42,7 +42,7 @@ class LayerManager {
         if (index !== -1) {
             let [ layer ] = this.list.splice(index, 1) as Array<Layer>
             (layer as Layer).onDestroy()
-            this.context.stage.removeChild(layer as Layer)
+            this.context.app.stage.removeChild(layer as Layer)
         }
         return this
     }

@@ -5,6 +5,7 @@
         "ES2015",
         "dom"
       ],
+      "skipLibCheck": true,
       "outDir": "lib",
       "removeComments": true,
       "target": "es5",
