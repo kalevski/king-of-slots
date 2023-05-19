@@ -1,7 +1,8 @@
-import { Context } from '@king-casino/slot-base'
+import { Context, ISlotRuntime } from '@king-casino/slot-base'
+
 import '@king-casino/slot-base/lib/main.css'
 
-import KingOfSlots from './KingOfSlots'
+import Loader from './layers/Loader'
 
 const context = new Context({
     parentId: 'game',
@@ -9,7 +10,17 @@ const context = new Context({
     height: 720
 })
 
-const kingOfSlots = new KingOfSlots()
+class KingOfSlots implements ISlotRuntime {
+    
+    onStart(context: Context): void {
+        context.layers.register('loader', Loader)
+    }
+    
+    onTerminate(context: Context): void {
+        
+    }
 
-context.run(kingOfSlots)
+}
+
+context.run(new KingOfSlots())
 

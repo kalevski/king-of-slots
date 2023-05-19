@@ -44,11 +44,11 @@ class Runtime extends Broadcast<RuntimeEvents,RuntimeCallback,any> {
     }
 
     private onceRender() {
-        window.addEventListener('resize', () => this.onResize()) // check params
+        // window.addEventListener('resize', () => this.onResize()) // check params
         this.emit('initialized')
-        this.getOverlay().style.width = this.config.width?.toString() + 'px'
-        this.getOverlay().style.height = this.config.height?.toString() + 'px'
-        this.onResize()
+        // this.getOverlay().style.width = this.config.width?.toString() + 'px'
+        // this.getOverlay().style.height = this.config.height?.toString() + 'px'
+        // this.onResize()
     }
 
     private onResize() {

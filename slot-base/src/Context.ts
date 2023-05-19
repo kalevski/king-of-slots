@@ -2,7 +2,7 @@ import { Application, Ticker } from 'pixi.js'
 import { LoggerFactory } from '@toolcase/logging'
 
 import Runtime from './Runtime'
-import { Config, ISlot } from './main'
+import { Config, ISlotRuntime } from './main'
 import LayerManager from './core/LayerManager'
 import CustomLoggerFactory from './CustomLoggingFactory'
 
@@ -14,7 +14,7 @@ const DEFAULT_CONFIG: Config = {
 
 class Context extends Application {
 
-    private slot: ISlot
+    private slot: ISlotRuntime
 
     private config: Config
 
@@ -37,7 +37,7 @@ class Context extends Application {
 
     }
 
-    run(slot: ISlot) {
+    run(slot: ISlotRuntime) {
         this.slot = slot
         this.runtime.init()
         this.runtime.once('initialized', this.onInit, this)
@@ -55,11 +55,18 @@ class Context extends Application {
         this.ticker = new Ticker()
         this.ticker.add(this.onUpdate, this)
 
+        this.layers = new LayerManager(this)
+
+        this.slot.onStart(this)
 
     }
 
     private onUpdate(dt: number) {
         this.layers.doUpdate(dt, this.ticker.deltaMS)
+    }
+
+    private onTerminate() {
+        this.slot.onTerminate(this)
     }
 
     private onResize() {

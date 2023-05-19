@@ -11,7 +11,7 @@ export type Config = {
 
 }
 
-export interface ISlot {
+export interface ISlotRuntime {
     
     onStart(context: Context): void
 
