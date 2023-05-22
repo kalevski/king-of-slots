@@ -6,6 +6,8 @@ import { Config, ISlotRuntime } from './main'
 import LayerManager from './core/LayerManager'
 import CustomLoggerFactory from './CustomLoggingFactory'
 import AssetManager from './core/AssetManager'
+import StateManager from './core/StateManager'
+import ServiceManager from './core/ServiceManager'
 
 
 const DEFAULT_CONFIG: Config = {
@@ -14,6 +16,8 @@ const DEFAULT_CONFIG: Config = {
 }
 
 class Context {
+
+    private delayOnRun = 0
 
     private slot: ISlotRuntime
 
@@ -29,11 +33,16 @@ class Context {
 
     public assets: AssetManager
 
-    public logging: LoggerFactory = new CustomLoggerFactory()
+    public state: StateManager
+
+    public services: ServiceManager
+
+    public logging: LoggerFactory = CustomLoggerFactory.Instance
 
     constructor(config: Config = DEFAULT_CONFIG) {
         this.config = config
-        this.runtime = new Runtime(this.config)
+        this.state = new StateManager()
+        this.runtime = new Runtime(this.config, this.state)
 
     }
 
@@ -52,7 +61,7 @@ class Context {
         this.app = new Application({
             width: this.config.width || 1280,
             height: this.config.height || 720,
-            background: '#ccc'
+            background: '#000'
         })
 
         const parent = document.getElementById('game') as HTMLDivElement
@@ -62,11 +71,10 @@ class Context {
         this.ticker.add(this.onUpdate, this)
 
         this.layers = new LayerManager(this)
-
         this.assets = new AssetManager(this)
+        this.services = new ServiceManager(this)
 
-        this.slot.onStart(this)
-
+        setTimeout(() => this.slot.onStart(this), this.delayOnRun * 1000)
     }
 
     private onUpdate(dt: number) {

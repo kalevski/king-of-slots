@@ -18,6 +18,7 @@ npm run dev
 - [x] create game config
 - [x] implement layer manager for managing different layers of logic
 - [x] Create background image
+- [ ] asset loading
 - [ ] Reel container with multiple reels
 - [ ] Spin functionality
 - [ ] Spin button interaction

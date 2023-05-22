@@ -1,32 +1,24 @@
 {"frames": {
 
-"button_spin.png":
-{
-	"frame": {"x":1749,"y":1,"w":199,"h":199},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":199,"h":199},
-	"sourceSize": {"w":199,"h":199}
-},
 "slot_frame.png":
 {
 	"frame": {"x":1,"y":1,"w":1428,"h":919},
-	"rotated": true,
+	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":1428,"h":919},
 	"sourceSize": {"w":1428,"h":919}
 },
 "symbol_01.png":
 {
-	"frame": {"x":922,"y":1,"w":378,"h":415},
-	"rotated": true,
+	"frame": {"x":1,"y":922,"w":378,"h":415},
+	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":77,"y":103,"w":378,"h":415},
 	"sourceSize": {"w":550,"h":554}
 },
 "symbol_02.png":
 {
-	"frame": {"x":922,"y":381,"w":391,"h":387},
+	"frame": {"x":381,"y":922,"w":391,"h":387},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":76,"y":114,"w":391,"h":387},
@@ -34,7 +26,7 @@
 },
 "symbol_03.png":
 {
-	"frame": {"x":1339,"y":317,"w":323,"h":396},
+	"frame": {"x":381,"y":1311,"w":323,"h":396},
 	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":135,"y":116,"w":323,"h":396},
@@ -42,15 +34,15 @@
 },
 "symbol_04.png":
 {
-	"frame": {"x":1703,"y":642,"w":326,"h":264},
-	"rotated": true,
+	"frame": {"x":1,"y":1339,"w":326,"h":264},
+	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":104,"y":191,"w":326,"h":264},
 	"sourceSize": {"w":550,"h":554}
 },
 "symbol_05.png":
 {
-	"frame": {"x":1627,"y":998,"w":347,"h":321},
+	"frame": {"x":1162,"y":922,"w":347,"h":321},
 	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":90,"y":159,"w":347,"h":321},
@@ -58,15 +50,15 @@
 },
 "symbol_06.png":
 {
-	"frame": {"x":922,"y":1125,"w":359,"h":314},
-	"rotated": false,
+	"frame": {"x":1431,"y":411,"w":359,"h":314},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":92,"y":151,"w":359,"h":314},
 	"sourceSize": {"w":550,"h":554}
 },
 "symbol_07.png":
 {
-	"frame": {"x":1308,"y":998,"w":355,"h":317},
+	"frame": {"x":1165,"y":1271,"w":355,"h":317},
 	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":88,"y":161,"w":355,"h":317},
@@ -74,7 +66,7 @@
 },
 "symbol_08.png":
 {
-	"frame": {"x":1315,"y":642,"w":386,"h":354},
+	"frame": {"x":774,"y":922,"w":386,"h":354},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":87,"y":152,"w":386,"h":354},
@@ -82,15 +74,15 @@
 },
 "symbol_09.png":
 {
-	"frame": {"x":1339,"y":1,"w":408,"h":314},
-	"rotated": false,
+	"frame": {"x":1431,"y":1,"w":408,"h":314},
+	"rotated": true,
 	"trimmed": true,
 	"spriteSourceSize": {"x":73,"y":171,"w":408,"h":314},
 	"sourceSize": {"w":550,"h":554}
 },
 "symbol_10.png":
 {
-	"frame": {"x":922,"y":770,"w":384,"h":353},
+	"frame": {"x":779,"y":1278,"w":384,"h":353},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":93,"y":157,"w":384,"h":353},
@@ -104,8 +96,8 @@
 	"version": "1.1",
 	"image": "king_of_slots_assets.png",
 	"format": "RGBA8888",
-	"size": {"w":1968,"h":1440},
+	"size": {"w":1746,"h":1635},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:7f4acb7f7db085c30dbcd5b0dc748925:b6d874d6546e3b1324d268705b1c428f:bd053c7f25403919c086958a141c3baa$"
+	"smartupdate": "$TexturePacker:SmartUpdate:686cef050acc026a203696f80b56f271:7cad3bdbbb638eda8f517a7f5b22ae0b:bd053c7f25403919c086958a141c3baa$"
 }
 }
