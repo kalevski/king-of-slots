@@ -3,6 +3,7 @@ import { createRoot, Root } from 'react-dom/client'
 import { Config } from './main'
 import { renderRootElement } from './RootElement'
 import { Broadcast } from '@toolcase/base'
+import StateManager from './core/StateManager'
 
 type RuntimeEvents = 'initialized' | 'resized'
 type RuntimeCallback = () => void
@@ -20,9 +21,12 @@ class Runtime extends Broadcast<RuntimeEvents,RuntimeCallback,any> {
 
     private config: Config
 
-    constructor(config: Config) {
+    private state: StateManager
+
+    constructor(config: Config, state: StateManager) {
         super()
         this.config = config
+        this.state = state
         this.parentEl = document.getElementById(config.parentId || 'game')
     }
 
@@ -32,7 +36,7 @@ class Runtime extends Broadcast<RuntimeEvents,RuntimeCallback,any> {
         }
         this.parentEl.classList.add('parent-container')
         this.reactRoot = createRoot(this.parentEl)
-        renderRootElement(this.reactRoot, () => this.onceRender())
+        renderRootElement(this.reactRoot, () => this.onceRender(), this.state)
     }
 
     getCanvasParent(): HTMLDivElement {
