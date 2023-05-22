@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Root } from 'react-dom/client'
 
+import DotLoader from './ui/DotLoader'
 import BasicRibbon from './ui/BasicRibbon'
 
 type RootElementProps = {
@@ -19,6 +20,7 @@ class RootElement extends Component<RootElementProps> {
     render() {
         return (
             <div id="overlay" className="overlay">
+                <DotLoader />
                 <div className="overlay-components">
                     <BasicRibbon />
                 </div>

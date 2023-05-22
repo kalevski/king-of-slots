@@ -1,7 +1,5 @@
 import { Context, ISlotRuntime } from '@king-casino/slot-base'
 
-// import '@king-casino/slot-base/lib/main.css'
-
 import Background from './layers/Background'
 import SlotFrame from './layers/SlotFrame'
 
@@ -14,9 +12,11 @@ const context = new Context({
 class KingOfSlots implements ISlotRuntime {
     
     async onStart(context: Context): Promise<void> {
+        context.features.loading.start()
         context.assets.load('background', '/assets/background.jpg')
         context.assets.load('textures', '/assets/king_of_slots_assets.json')
         await context.assets.start()
+        context.features.loading.stop()
 
         context.layers.register('background', Background)
         context.layers.register('slot_frame', SlotFrame)

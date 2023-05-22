@@ -6,6 +6,7 @@ import { Config, ISlotRuntime } from './main'
 import LayerManager from './core/LayerManager'
 import CustomLoggerFactory from './CustomLoggingFactory'
 import AssetManager from './core/AssetManager'
+import FeatureManager from './core/FeatureManager'
 
 
 const DEFAULT_CONFIG: Config = {
@@ -28,6 +29,8 @@ class Context {
     public layers: LayerManager
 
     public assets: AssetManager
+
+    public features: FeatureManager
 
     public logging: LoggerFactory = new CustomLoggerFactory()
 
@@ -62,8 +65,8 @@ class Context {
         this.ticker.add(this.onUpdate, this)
 
         this.layers = new LayerManager(this)
-
         this.assets = new AssetManager(this)
+        this.features = new FeatureManager(this)
 
         this.slot.onStart(this)
 
