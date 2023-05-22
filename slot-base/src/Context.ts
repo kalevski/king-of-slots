@@ -16,17 +16,11 @@ const DEFAULT_CONFIG: Config = {
 }
 
 class Context {
-
-    private delayOnRun = 0
-
-    private slot: ISlotRuntime
-
-    private config: Config
-
-    private runtime: Runtime
-
+    
+    public config: Config
+    
     public app: Application
-
+    
     public ticker: Ticker
 
     public layers: LayerManager
@@ -38,6 +32,12 @@ class Context {
     public services: ServiceManager
 
     public logging: LoggerFactory = CustomLoggerFactory.Instance
+
+    private delayOnRun = 0
+
+    private slot: ISlotRuntime
+
+    private runtime: Runtime
 
     constructor(config: Config = DEFAULT_CONFIG) {
         this.config = config

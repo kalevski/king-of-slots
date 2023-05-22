@@ -69,7 +69,11 @@
 
 
         .item {
+
+            position: relative;
             padding: 10px 0;
+            min-width: 100px;
+
             > * {
                 text-align: center;
                 text-transform: uppercase;
@@ -88,6 +92,33 @@
                 font-size: 20px;
             }
 
+            .item-button {
+                position: absolute;
+                top: 30px;
+                background: white;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                color: black;
+                line-height: 33px;
+                text-align: center;
+                font-size: 50px;
+                cursor: pointer;
+            }
+
+            .item-button:hover {
+                opacity: .7;
+            }
+
+            .item-button.float-left {
+                left: -50px
+            }
+
+            .item-button.float-right {
+                line-height: 40px;
+                right: -50px;
+            }
+
             .auto-spin {
                 width: 80px;
                 height: 80px;
@@ -103,6 +134,10 @@
 
             .auto-spin:hover {
                 background-blend-mode: normal;
+            }
+
+            .auto-spin[aria-disabled="false"] {
+                background-blend-mode: difference;
             }
         }
     }

@@ -11,7 +11,11 @@ const gameplay = {
         multiplier: 0.2
     },
 
-    auto: false
+    auto: false,
+
+    winLines: [] as number[][],
+
+    matrix: [] as number[][]
 }
 
 export default gameplay

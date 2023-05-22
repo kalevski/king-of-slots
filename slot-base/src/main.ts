@@ -14,8 +14,6 @@ import gameplay from './slices/gameplay'
 export type GeneralSlice = Partial<typeof general>
 export type GameplaySlice = Partial<typeof gameplay>
 
-
-
 export type Config = {
 
     parentId?: string,
