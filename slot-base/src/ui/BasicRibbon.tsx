@@ -21,14 +21,15 @@ const BasicRibbon = () => {
     const {
         balance = 0,
         lastWin = 0,
-        bet = 0
+        bet = 0,
+        auto = false
     } = gameplay
 
     return (
         <div className="component ribbon basic-ribbon">
             <div className="ribbon-menu">
                 <div className="ribbon-menu-container">
-                    <div className="ribbon-menu-circle"></div>
+                    <div onClick={() => dispatch('ribbon.menu.toggle')} className="ribbon-menu-circle"></div>
                 </div>
             </div>
             <div className="ribbon-container">
@@ -46,9 +47,11 @@ const BasicRibbon = () => {
                     <div className="item-title">bet</div>
                     <div className="item-value">{bet}</div>
                     <div className="item-value-2nd">{toCurrency(bet)}</div>
+                    <div onClick={() => dispatch('ribbon.bet.decrease')} className="item-button float-left">-</div>
+                    <div onClick={() => dispatch('ribbon.bet.increase')} className="item-button float-right">+</div>
                 </div>
                 <div className="item item-button">
-                    <div className="auto-spin"></div>
+                    <div onClick={() => dispatch('ribbon.spin.auto', !auto)} aria-disabled={auto} className="auto-spin"></div>
                 </div>
             </div>
             <div onClick={() => dispatch('ribbon.spin')} className="spin-button"></div>
