@@ -26,6 +26,8 @@ export interface ISlotRuntime {
     
     onStart(context: Context): void
 
+    onUpdate(delta: number, ms: number): void
+
     onTerminate(context: Context): void
 }
 

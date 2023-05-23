@@ -74,10 +74,14 @@ class Context {
         this.assets = new AssetManager(this)
         this.services = new ServiceManager(this)
 
-        setTimeout(() => this.slot.onStart(this), this.delayOnRun * 1000)
+        setTimeout(() => {
+            this.slot.onStart(this)
+            this.ticker.start()
+        }, this.delayOnRun * 1000)
     }
 
     private onUpdate(dt: number) {
+        this.slot.onUpdate(dt, this.ticker.deltaMS)
         this.layers.doUpdate(dt, this.ticker.deltaMS)
     }
 

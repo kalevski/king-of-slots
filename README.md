@@ -56,15 +56,15 @@ package.json
 - [x] implement layer manager for managing different layers of logic
 - [x] Create background image
 - [x] asset loading
-- [ ] Reel container with multiple reels
-- [ ] Spin functionality
-- [ ] Spin button interaction
+- [x] Reel container with multiple reels
+- [x] Spin functionality
+- [x] Spin button interaction
 - [ ] UML diagram of solution
 
 ### ➕ Bonus tasks
 - [ ] Create simple sprite animation
 - [ ] include multiple levels, scores, server infra in UML Diagram 
-- [ ] Bet increase / decrease
+- [x] Bet increase / decrease
 - [ ] Full screen button
 - [ ] Anticipation 
 - [ ] Bonus spins
