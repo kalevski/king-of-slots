@@ -32,18 +32,29 @@ class Reels extends Container {
     }
 
     spinReelLines() {
-
-        this.eachSymbol(symbol => {
-            let reelLength = this.getReelLength(symbol.reelIndex)
-            let targetY = this.getSymbolPosition(symbol.reelIndex, reelLength, this.temp).y
-            symbol.spin(targetY, 'repeat')
-        })
+        if (this.result !== null) {
+            for (let index = 0; index < this.result.length; index++) {
+                this.resetReelToDefault(index, this.result[index])
+            }
+            this.onSpinFinished()
+            setTimeout(() => this.startSpin(), 500)
+        } else {
+            this.startSpin()
+        }
     }
 
     setSpinResult(matrix: number[][], winLines: number[][]) {
         this.result = matrix
         this.reelLock = matrix.map(() => 0)
         
+    }
+
+    private startSpin() {
+        this.eachSymbol(symbol => {
+            let reelLength = this.getReelLength(symbol.reelIndex)
+            let targetY = this.getSymbolPosition(symbol.reelIndex, reelLength, this.temp).y
+            symbol.spin(targetY, 'repeat')
+        })
     }
 
     private onSymbolSpinEnd(symbol: ReelSymbol) {
@@ -71,9 +82,6 @@ class Reels extends Container {
                 this.resetReelToDefault(this.lockIndex, [...this.result[reelIndex]])
                 this.lockIndex++
                 if (this.lockIndex === this.result.length) {
-                    this.result = null
-                    this.reelLock = null
-                    this.lockIndex = 0
                     this.onSpinFinished()
                 }
             }
@@ -93,7 +101,9 @@ class Reels extends Container {
     }
 
     private onSpinFinished() {
-
+        this.result = null
+        this.reelLock = null
+        this.lockIndex = 0
     }
 
     doUpdate(delta: number, ms: number) {
