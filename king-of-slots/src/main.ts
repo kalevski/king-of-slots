@@ -1,9 +1,11 @@
 import { Context, ISlotRuntime } from '@king-casino/slot-base'
+import * as TWEEDLE from 'tweedle.js'
 
 import Background from './layers/Background'
 import SlotFrame from './layers/SlotFrame'
 
-import KingCasinoService from './services/KingCasinoService'
+import KingCasinoGameplay from './services/KingCasinoGameplay'
+import KingCasinoAPI from './services/KingCasinoAPI'
 
 const context = new Context({
     parentId: 'game',
@@ -23,10 +25,15 @@ class KingOfSlots implements ISlotRuntime {
 
         context.state.get().set({ loading: false })
 
-        context.services.register(KingCasinoService)
+        context.services.register(KingCasinoAPI)
+        context.services.register(KingCasinoGameplay)
 
         context.layers.register('background', Background)
         context.layers.register('slot_frame', SlotFrame)
+    }
+
+    onUpdate(delta: number, ms: number): void {
+        TWEEDLE.Group.shared.update(delta)
     }
     
     onTerminate(context: Context): void {

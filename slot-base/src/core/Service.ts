@@ -1,21 +1,16 @@
 import Context from '../Context'
-import StateManager from './StateManager'
 
 class Service {
 
-    protected state: StateManager
+    protected context: Context
 
     constructor(context: Context) {
-        this.state = context.state
+        this.context = context
     }
 
-    public onInitialize() {
+    public onInitialize() {}
 
-    }
-
-    public onDispose() {
-
-    }
+    public onDispose() {}
 
 }
 
