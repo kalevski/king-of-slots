@@ -23,16 +23,16 @@ class ReelSymbol extends Sprite {
     
     private spinEnabled: boolean = false
 
-    private spinEndEvent: boolean
-
     private targetY: number = -Infinity
+
+    private spinState: string = ''
 
     static Size = {
         normal: { width: 275, height: 218 } as ReelSymbolSize,
         small: { width: 275, height: 145 } as ReelSymbolSize
     }
 
-    static Speed: number = 40
+    static Speed: number = 30
 
     constructor(reelIndex: number, symbolId:number, size: ReelSymbolSizes, spritesheet: Spritesheet) {
         super(ReelSymbol.getTexture(symbolId, spritesheet))
@@ -41,23 +41,30 @@ class ReelSymbol extends Sprite {
         this.spritesheet = spritesheet
         this.scaleToFit(this.symbolSize)
         this.anchor.set(.5)
-        super.emit
     }
 
-    spin(value: number | boolean = true, notify = true) {
+    spin(value: number | boolean = true, state: string = '') {
         if (typeof value === 'boolean') {
             this.spinEnabled = value
             return
         }
         this.targetY = value
         this.spinEnabled = true
-        this.spinEndEvent = notify
+        this.spinState = state
     }
 
 
 
     get reelSize() {
         return ReelSymbol.Size[this.symbolSize]
+    }
+
+    get spinTargetY() {
+        return this.targetY
+    }
+
+    get state() {
+        return this.spinState
     }
 
     static getTexture(symbolId: number, spritesheet: Spritesheet): Texture {
@@ -86,9 +93,7 @@ class ReelSymbol extends Sprite {
         }
         if (this.position.y >= this.targetY) {
             this.spinEnabled = false
-            if (this.spinEndEvent) {
-                this.spinEvents.emit('spin_ended', this)
-            }
+            this.spinEvents.emit('spin_ended', this)
             return
         }
 
