@@ -188,6 +188,21 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">textures/symbol_00.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>138,139,275,277</rect>
+                <key>scale9Paddings</key>
+                <rect>138,139,275,277</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">textures/symbol_01.png</key>
             <key type="filename">textures/symbol_02.png</key>
             <key type="filename">textures/symbol_03.png</key>
