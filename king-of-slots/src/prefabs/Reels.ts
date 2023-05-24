@@ -20,7 +20,9 @@ class Reels extends Container {
 
     private reelLock: number[] | null = null
 
-    private lockIndex: number = 0 
+    private lockIndex: number = 0
+
+    private winLines: number[][][] = []
 
     constructor(context: Context) {
         super()
@@ -43,14 +45,15 @@ class Reels extends Container {
         }
     }
 
-    setSpinResult(matrix: number[][], winLines: number[][]) {
+    setSpinResult(matrix: number[][], winLines: number[][][]) {
         this.result = matrix
         this.reelLock = matrix.map(() => 0)
-        
+        this.winLines = winLines
     }
 
     private startSpin() {
         this.eachSymbol(symbol => {
+            symbol.tint = 0xffffff
             let reelLength = this.getReelLength(symbol.reelIndex)
             let targetY = this.getSymbolPosition(symbol.reelIndex, reelLength, this.temp).y
             symbol.spin(targetY, 'repeat')
@@ -104,6 +107,13 @@ class Reels extends Container {
         this.result = null
         this.reelLock = null
         this.lockIndex = 0
+
+        for (const winLine of this.winLines) {
+            for (const [ reelIndex, symbolIndex ] of winLine) {
+                let symbol = this.reels[reelIndex][symbolIndex + 1]
+                symbol.tint = 0xFFFF00
+            }
+        }
     }
 
     doUpdate(delta: number, ms: number) {

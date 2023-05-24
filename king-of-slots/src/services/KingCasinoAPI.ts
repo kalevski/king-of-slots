@@ -4,7 +4,7 @@ interface ISpinEndpointResponse {
     bet: number,
     balance: number,
     lastWin: number,
-    winLines: number[][],
+    winLines: number[][][],
     matrix: number[][]
 }
 
@@ -20,16 +20,21 @@ interface IGamePreferencesResponse {
     betStep: number
 }
 
+interface ISpinResult {
+    matrix: number[][]
+    winLines: number[][][]
+}
+
 class KingCasinoAPI extends Service {
 
     async getGamePreferences() {
         await this.networkThrottle()
         return {
-            betMin: 3,
-            betMax: 36,
-            betStep: 1.5,
+            betMin: 6,
+            betMax: 72,
+            betStep: 3,
             currencySign: '$',
-            currencyMultiplier: 0.25
+            currencyMultiplier: 1
         } as IGamePreferencesResponse
     }
 
@@ -44,24 +49,20 @@ class KingCasinoAPI extends Service {
 
     async callSpin(bet: number) {
         await this.networkThrottle()
-        let hasWin = Math.floor(Math.random() * 1000) > 700
-        let winAmount = Math.floor(Math.random() * 50) + 10
+        const result = this.getSpinResult()
+        const hasWin = result.winLines.length > 0
+        
+        let winAmount = hasWin ? Math.floor(Math.random() * 50) + 10 - bet : -bet
 
         let prevBalance = this.gameplay.get().balance as number
+
 
         const data: ISpinEndpointResponse = {
             lastWin: hasWin ? winAmount * bet : 0,
             balance: prevBalance + winAmount,
             bet: bet,
-            winLines: [],
-            matrix: [
-                [ 1, 2, 3 ],
-                [ 1, 2, 3 ],
-                [ 1, 2, 3 ],
-                [ 1, 2, 3, 4, 5, 6 ],
-                [ 1, 2, 3, 4, 5, 6 ]
-            ]
-
+            winLines: result.winLines,
+            matrix: result.matrix
         }
         return data
     }
@@ -77,6 +78,58 @@ class KingCasinoAPI extends Service {
                 resolve()
             }, latency)
         })
+    }
+
+    private getSpinResult() : ISpinResult {
+        
+        const winLines = 6
+
+        let matrix = [] as number[][]
+        if (window['forceWin'] === true) {
+            window['forceWin'] = false
+            matrix = [
+                [1, 1, 4],
+                [1, 2, 4],
+                [1, 3, 4],
+                [1, 4, 4, 1, 5, 1],
+                [1, 5, 4, 3, 3, 2]
+            ]
+        } else {
+            matrix = [
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0]
+            ].map(reel => reel.map(() => this.getRandomSymbol()))
+        }
+        
+        const winLineList = [] as number[][][]
+
+        for (let lineIndex = 0; lineIndex < winLines; lineIndex++) {
+            
+            const line = [] as number[][]
+            const symbols = [ 2, 2, 2, 1, 1 ].map((value, index) => {
+                let indexA = index
+                let indexB = Math.floor(lineIndex / value)
+                line.push([ indexA, indexB ])
+                return matrix[indexA][indexB]
+            })
+            let isWinLine = symbols.every(value => value === symbols[0])
+            if (isWinLine) {
+                winLineList.push(line)
+            }
+        }
+
+        return {
+            matrix: matrix,
+            winLines: winLineList
+        }
+    }
+
+
+    private getRandomSymbol() {
+        return Math.floor(Math.random() * 10) + 1
     }
 
 }
