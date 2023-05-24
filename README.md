@@ -18,6 +18,8 @@ window.forceWin = true
 
 ## Project streucture
 
+![project_structure](https://github.com/kalevski/toolcase/assets/10467454/e3ad9156-61e2-4303-8e7c-79229fccdfce)
+
 **Top level structure**
 ```
 .github/ - GitHub environment configurations
