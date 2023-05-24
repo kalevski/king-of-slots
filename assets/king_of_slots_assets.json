@@ -1,0 +1,111 @@
+{"frames": {
+
+"slot_frame.png":
+{
+	"frame": {"x":1,"y":1,"w":1428,"h":919},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1428,"h":919},
+	"sourceSize": {"w":1428,"h":919}
+},
+"symbol_00.png":
+{
+	"frame": {"x":1431,"y":1,"w":550,"h":555},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":550,"h":555},
+	"sourceSize": {"w":550,"h":555}
+},
+"symbol_01.png":
+{
+	"frame": {"x":1431,"y":558,"w":378,"h":415},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":77,"y":103,"w":378,"h":415},
+	"sourceSize": {"w":550,"h":554}
+},
+"symbol_02.png":
+{
+	"frame": {"x":809,"y":922,"w":391,"h":387},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":76,"y":114,"w":391,"h":387},
+	"sourceSize": {"w":550,"h":554}
+},
+"symbol_03.png":
+{
+	"frame": {"x":411,"y":922,"w":323,"h":396},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":135,"y":116,"w":323,"h":396},
+	"sourceSize": {"w":550,"h":554}
+},
+"symbol_04.png":
+{
+	"frame": {"x":775,"y":1315,"w":326,"h":264},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":104,"y":191,"w":326,"h":264},
+	"sourceSize": {"w":550,"h":554}
+},
+"symbol_05.png":
+{
+	"frame": {"x":1198,"y":1291,"w":347,"h":321},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":159,"w":347,"h":321},
+	"sourceSize": {"w":550,"h":554}
+},
+"symbol_06.png":
+{
+	"frame": {"x":1198,"y":975,"w":359,"h":314},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":151,"w":359,"h":314},
+	"sourceSize": {"w":550,"h":554}
+},
+"symbol_07.png":
+{
+	"frame": {"x":1559,"y":975,"w":355,"h":317},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":88,"y":161,"w":355,"h":317},
+	"sourceSize": {"w":550,"h":554}
+},
+"symbol_08.png":
+{
+	"frame": {"x":1,"y":1238,"w":386,"h":354},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":87,"y":152,"w":386,"h":354},
+	"sourceSize": {"w":550,"h":554}
+},
+"symbol_09.png":
+{
+	"frame": {"x":1,"y":922,"w":408,"h":314},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":73,"y":171,"w":408,"h":314},
+	"sourceSize": {"w":550,"h":554}
+},
+"symbol_10.png":
+{
+	"frame": {"x":389,"y":1247,"w":384,"h":353},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":157,"w":384,"h":353},
+	"sourceSize": {"w":550,"h":554}
+}},
+"animations": {
+	"symbol": ["symbol_00.png","symbol_01.png","symbol_02.png","symbol_03.png","symbol_04.png","symbol_05.png","symbol_06.png","symbol_07.png","symbol_08.png","symbol_09.png","symbol_10.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "king_of_slots_assets.png",
+	"format": "RGBA8888",
+	"size": {"w":1982,"h":1613},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d51aab6c61a05c98935c4c5a801797b3:1d5186663ab6955d19819631618aedfa:bd053c7f25403919c086958a141c3baa$"
+}
+}
