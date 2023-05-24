@@ -13,7 +13,7 @@ const gameplay = {
 
     auto: false,
 
-    winLines: [] as number[][],
+    winLines: [] as number[][][],
 
     matrix: [] as number[][]
 }

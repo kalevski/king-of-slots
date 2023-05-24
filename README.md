@@ -10,6 +10,12 @@ npm install
 npm run dev
 ```
 
+## Cheat code
+type inside console before spin
+```js
+window.forceWin = true
+```
+
 ## Project streucture
 
 **Top level structure**
@@ -35,15 +41,15 @@ package.json
 ```
 lib/
 src/ - 
-├─ core/ - 
-├─ hooks/ - 
-├─ slices/ - 
-├─ ui/ - 
-├─ CustomLoggingFactory.ts
-├─ Runtime.ts
-├─ RootElement.ts
-├─ Context.ts
-├─ main.ts
+├─ core/ - engine API provided for easily managing engine features
+├─ hooks/ - Reacr custom hooks for managing the state of the components
+├─ slices/ - state slices separated by business logic
+├─ ui/ - React UI components
+├─ CustomLoggingFactory.ts - logging ligrary factory class
+├─ Runtime.ts - Web runtime class take care about sizing and canvas positioning
+├─ RootElement.ts - root React eelemtn
+├─ Context.ts - Main class of every project
+├─ main.ts - library exports
 package.json
 ```
 
@@ -59,11 +65,11 @@ package.json
 - [x] Reel container with multiple reels
 - [x] Spin functionality
 - [x] Spin button interaction
-- [ ] UML diagram of solution
+- [x] UML diagram of solution
 
 ### ➕ Bonus tasks
 - [ ] Create simple sprite animation
-- [ ] include multiple levels, scores, server infra in UML Diagram 
+- [x] include multiple levels, scores, server infra in UML Diagram 
 - [x] Bet increase / decrease
 - [ ] Full screen button
 - [ ] Anticipation 

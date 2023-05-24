@@ -46,7 +46,7 @@ class SlotFrame extends Layer {
 
     private onSpinResult() {
         let result = this.gameplay.get().matrix as number[][]
-        let winLines = this.gameplay.get().winLines as number[][]
+        let winLines = this.gameplay.get().winLines as number[][][]
         this.reels.setSpinResult(result, winLines)
     }
 
