@@ -29,7 +29,7 @@
         "@parcel/transformer-sass": "^2.8.3",
         "@parcel/transformer-typescript-types": "^2.8.3",
         "concurrently": "^8.0.1",
-        "nodemon": "^2.0.22",
+        "nodemon": "^3.0.1",
         "parcel": "^2.8.3",
         "process": "^0.11.10",
         "punycode": "^2.3.0",
